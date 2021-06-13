@@ -24,4 +24,8 @@ public class ChampionService {
     public List<Champion> getAllChampions() {
         return championRepository.findAll();
     }
+
+    public void deleteChampionById(Long championId) {
+        championRepository.deleteById(championId);
+    }
 }
