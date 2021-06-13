@@ -29,7 +29,7 @@ public class ChampionController {
         return championService.getAllChampions();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteChampionById(@PathVariable("id") Long championId) {
          championService.deleteChampionById(championId);
     }
