@@ -73,7 +73,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>champion-service.jar</finalName>
+		<finalName>champion-service</finalName>
 	</build>
 
 </project>
