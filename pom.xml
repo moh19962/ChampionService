@@ -73,7 +73,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>spring-boot-docker</finalName>
+		<finalName>champion-service.jar</finalName>
 	</build>
 
 </project>
