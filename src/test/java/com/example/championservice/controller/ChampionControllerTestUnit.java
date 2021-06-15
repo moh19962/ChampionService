@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ChampionControllerTestUnit {
 
     @Test
-    void saveChampion() {
+    void saveChampions() {
 //        //Arrange
 //        ChampionController champion = new ChampionController();
 //        Champion champs = new Champion(1L, "Zed", "Midlaner", "www.zedjpg.nl", "Zed description");
@@ -18,6 +18,18 @@ class ChampionControllerTestUnit {
 //
 //        //Assert
 //        assertEquals(champs, response);
+    }
+    @Test
+    void saveChampion() {
+        //Arrange
+        ChampionController champion = new ChampionController();
+        Champion champs = new Champion(1L, "Zed", "Midlaner", "www.zedjpg.nl", "Zed description");
+
+        //Act
+        Champion response = champion.saveChampion(champs);
+
+        //Assert
+        assertEquals(champs, response);
     }
 
     @Test
