@@ -61,17 +61,17 @@ class ChampionControllerTestUnit {
 
     }
 
-    @Test
-    void getAllChampions() throws Exception {
-
-        List<Champion> champions = new ArrayList<>();
-        champions.add(new Champion(1L, "ashe", "Marksman" ,"www.newashe.jpg.nl", "Description"));
-        champions.add(new Champion(2L, "zed", "Midlaner" ,"www.newzed.jpg.nl", "Description"));
-
-        given(championRepository.findAll()).willReturn(champions);
-
-        String url = "/all";
-
-        mvc.perform(get(url)).andExpect(status().isOk());
-    }
+//    @Test
+//    void getAllChampions() throws Exception {
+//
+//        List<Champion> champions = new ArrayList<>();
+//        champions.add(new Champion(1L, "ashe", "Marksman" ,"www.newashe.jpg.nl", "Description"));
+//        champions.add(new Champion(2L, "zed", "Midlaner" ,"www.newzed.jpg.nl", "Description"));
+//
+//        given(championRepository.findAll()).willReturn(champions);
+//
+//        String url = "/all";
+//
+//        mvc.perform(get(url)).andExpect(status().isOk());
+//    }
 }

@@ -60,7 +60,7 @@ public class ChampionControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.championId").value(1L))
+                .andExpect(jsonPath("$.championId").value(1))
                 .andExpect(jsonPath("$.championName").value("Ashe"))
                 .andExpect(jsonPath("$.championType").value("ADC"))
                 .andExpect(jsonPath("$.championImage").value("www.asheImage.nl"))

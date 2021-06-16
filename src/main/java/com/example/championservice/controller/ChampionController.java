@@ -15,7 +15,7 @@ public class ChampionController {
     @Autowired
     private ChampionService championService;
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public Champion saveChampion(@RequestBody Champion champion){
         return championService.saveChampion(champion);
     }
