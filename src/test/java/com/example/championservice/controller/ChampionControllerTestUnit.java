@@ -1,42 +1,77 @@
 package com.example.championservice.controller;
 
 import com.example.championservice.entity.Champion;
+import com.example.championservice.repository.ChampionRepository;
+import com.example.championservice.service.ChampionService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import javax.transaction.Transactional;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@SpringBootTest
+@AutoConfigureMockMvc
 class ChampionControllerTestUnit {
 
+    @Autowired
+    private MockMvc mvc;
+
+    @MockBean
+    private ChampionService championService;
+
+    @MockBean
+    private ChampionRepository championRepository;
+
     @Test
-    void saveChampions() {
-//        //Arrange
-//        ChampionController champion = new ChampionController();
-//        Champion champs = new Champion(1L, "Zed", "Midlaner", "www.zedjpg.nl", "Zed description");
-//
-//        //Act
-//        Champion response = champion.saveChampion(champs);
-//
-//        //Assert
-//        assertEquals(champs, response);
-    }
-    @Test
-    void saveChampion() {
+    void constructorTest() throws Exception {
         //Arrange
-        ChampionController champion = new ChampionController();
-        Champion champs = new Champion(1L, "Zed", "Midlaner", "www.zedjpg.nl", "Zed description");
+        Champion champ = new Champion(1L, "Zed", "Midlaner", "www.zedjpg.nl", "Zed description");
+        assertThat(champ.getChampionId()).isEqualTo(1);
+        assertThat(champ.getChampionName()).isEqualTo("Zed");
 
-        //Act
-        Champion response = champion.saveChampion(champs);
-
-        //Assert
-        assertEquals(champs, response);
     }
 
     @Test
-    void findChampionById() {
+    void nameNotEqual() throws Exception {
+        //Arrange
+        Champion champ = new Champion(1L, "Zed", "Midlaner", "www.zedjpg.nl", "Zed description");
+        assertThat(champ.getChampionId()).isNotEqualTo(2L);
+        assertThat(champ.getChampionName()).isEqualTo("Zed");
+
     }
 
     @Test
-    void getAllChampions() {
+    void getAllChampions() throws Exception {
+
+        List<Champion> champions = new ArrayList<>();
+        champions.add(new Champion(1L, "ashe", "Marksman" ,"www.newashe.jpg.nl", "Description"));
+        champions.add(new Champion(2L, "zed", "Midlaner" ,"www.newzed.jpg.nl", "Description"));
+
+        given(championRepository.findAll()).willReturn(champions);
+
+        String url = "/all";
+
+        mvc.perform(get(url)).andExpect(status().isOk());
     }
 }
