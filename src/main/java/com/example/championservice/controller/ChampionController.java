@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "")
 @RequestMapping("/champions")
 public class ChampionController {
 
     @Autowired
     private ChampionService championService;
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public Champion saveChampion(@RequestBody Champion champion){
         return championService.saveChampion(champion);
     }
+
 
     @GetMapping("/{id}")
     public Champion findChampionById(@PathVariable("id") Long championId) {

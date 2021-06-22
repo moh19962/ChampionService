@@ -19,6 +19,7 @@ public class Champion {
     private Long championId;
     private String championName;
     private String championType;
+    private Boolean featured;
     private String championImage;
     private String championDescription;
 }
