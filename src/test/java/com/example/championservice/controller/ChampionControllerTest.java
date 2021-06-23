@@ -37,7 +37,7 @@ public class ChampionControllerTest {
 
     @Test
     void saveChampion() throws Exception {
-        Champion champion = new Champion(1L,"Peer","Support",false,"https://www.ahealthylife.nl/wp-content/uploads/2017/11/peer_voedingswaarde_tabel.jpg","What is Lorem Ipsum Loem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+        Champion champion = new Champion(1L,"Peer","Support", false,"https://cdn.webshopapp.com/shops/32068/files/11883478/kunst-peer-groen-11cm.jpg","Lorem Ipsum is simply dummy text of the printing and typesetting industry");
 
         String ChampionAsString = mapper.writeValueAsString(champion);
 
@@ -50,8 +50,8 @@ public class ChampionControllerTest {
                 .andExpect(jsonPath("$.championName").value("Peer"))
                 .andExpect(jsonPath("$.championType").value("Support"))
                 .andExpect(jsonPath("$.featured").value(false))
-                .andExpect(jsonPath("$.championImage").value("https://www.ahealthylife.nl/wp-content/uploads/2017/11/peer_voedingswaarde_tabel.jpg"))
-                .andExpect(jsonPath("$.championDescription").value("What is Lorem Ipsum Loem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."));
+                .andExpect(jsonPath("$.championImage").value("https://cdn.webshopapp.com/shops/32068/files/11883478/kunst-peer-groen-11cm.jpg"))
+                .andExpect(jsonPath("$.championDescription").value("Lorem Ipsum is simply dummy text of the printing and typesetting industry"));
 
     }
 
@@ -65,8 +65,8 @@ public class ChampionControllerTest {
                 .andExpect(jsonPath("$.championName").value("Appel"))
                 .andExpect(jsonPath("$.championType").value("Marksman"))
                 .andExpect(jsonPath("$.featured").value(false))
-                .andExpect(jsonPath("$.championImage").value("https://vitaminevanos.nl/wp-content/uploads/2019/03/OilS9GZKmIHBgxX2zHLpvbRgCpmL7y76dLvXN5sT.png"))
-                .andExpect(jsonPath("$.championDescription").value("What is Lorem Ipsum Loem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."));
+                .andExpect(jsonPath("$.championImage").value("https://www.foodandfriends.nl/app/uploads/2020/12/appel-artikel.jpg"))
+                .andExpect(jsonPath("$.championDescription").value("Lorem Ipsum is simply dummy text of the printing and typesetting industry"));
     }
 
     @Test
@@ -87,9 +87,9 @@ public class ChampionControllerTest {
                 .andExpect(jsonPath("$[0].championId").value(1L))
                 .andExpect(jsonPath("$[0].championName").value("Appel"))
                 .andExpect(jsonPath("$[0].championType").value("Marksman"))
-                .andExpect(jsonPath("$.[0].featured").value(false))
-                .andExpect(jsonPath("$[0].championImage").value("https://vitaminevanos.nl/wp-content/uploads/2019/03/OilS9GZKmIHBgxX2zHLpvbRgCpmL7y76dLvXN5sT.png"))
-                .andExpect(jsonPath("$[0].championDescription").value("What is Lorem Ipsum Loem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."));
+                .andExpect(jsonPath("$[0].featured").value(false))
+                .andExpect(jsonPath("$[0].championImage").value("https://www.foodandfriends.nl/app/uploads/2020/12/appel-artikel.jpg"))
+                .andExpect(jsonPath("$[0].championDescription").value("Lorem Ipsum is simply dummy text of the printing and typesetting industry"));
     }
 }
 

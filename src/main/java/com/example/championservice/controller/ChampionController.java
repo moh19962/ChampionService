@@ -19,7 +19,6 @@ public class ChampionController {
         return championService.saveChampion(champion);
     }
 
-
     @GetMapping("/{id}")
     public Champion findChampionById(@PathVariable("id") Long championId) {
         return championService.findChampionById(championId);
